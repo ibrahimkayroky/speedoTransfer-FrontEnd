@@ -1,0 +1,65 @@
+//Colors
+$primary-color: #871e35;
+$secondary-color: #ffff;
+//Hover
+$primary-hover-color: darken($primary-color, 10%);
+//Text
+$primary-text-color: #ffff;
+$secondary-text-color: #24221e;
+//Style
+$padding: 16px 32px 16px 32px;
+$border: 1px;
+$radius: 6.5px;
+$height: 56px;
+
+.primary-btn {
+  background-color: $primary-color;
+  color: $primary-text-color;
+  border: $border;
+  border-radius: $radius;
+  padding: $padding;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.width-501 {
+    width: 501px;
+  }
+  &.width-417 {
+    width: 417px;
+  }
+  &.width-167 {
+    width: 167px;
+  }
+  &.width-192 {
+    width: 192px;
+  }
+  &.width-560 {
+    width: 560.75px;
+  }
+  &.width-200 {
+    width: 200px;
+  }
+}
+
+.secondary-btn {
+  background-color: $secondary-color;
+  color: $secondary-text-color;
+  border: $border;
+  border-radius: $radius;
+  padding: $padding;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.width-107 {
+    width: 107px;
+  }
+  &.width-560 {
+    width: 560.75px;
+  }
+}
