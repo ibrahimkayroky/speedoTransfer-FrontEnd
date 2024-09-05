@@ -10,7 +10,18 @@
   </ul>
 
   <div class="navbar__actions">
-    <button class="btn btn--login">Login</button>
-    <button class="btn btn--register">Register Now</button>
+    <app-button
+      routerLink="login"
+      buttonType="secondary"
+      buttonText="Login"
+      [ngClass]="'width-107'"
+      >Login</app-button
+    >
+    <app-button
+      routerLink="signup"
+      buttonType="primary"
+      buttonText="Register Now"
+      [ngClass]="'width-167'"
+    ></app-button>
   </div>
 </nav>
