@@ -9,20 +9,6 @@
     <li><a routerLink="help">Help</a></li>
   </ul>
 
-  <ng-container **ngIf="isLoggedIn">
-    <span class="navbar-username">Jonathon Smith</span>
-    <div class="dropdown">
-      <button class="dropdown-toggle" (click)="toggleDropdown()">>=</button>
-      <div class="dropdown-menu" **ngIf="dropdownOpen">
-        <a>My Account</a>
-        <a>Payment History</a>
-        <a>Setting</a>
-        <a>Change Password</a>
-        <a>Logout</a>
-      </div>
-    </div>
-  </ng-container>
-
   <div class="navbar__actions">
     <button class="btn btn--login">Login</button>
     <button class="btn btn--register">Register Now</button>
