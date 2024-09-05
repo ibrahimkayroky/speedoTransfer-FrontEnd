@@ -1,0 +1,50 @@
+$primary-color: #521220;
+$first-font: Inter;
+$second-font: Roboto;
+
+.container {
+  width: 100%;
+  padding: 60px 90px 0 90px;
+}
+
+.footer {
+  background-color: $primary-color;
+  color: #ffffff;
+  text-align: center;
+  height: 420px;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 600;
+  font-family: $first-font;
+  margin-bottom: 30px;
+}
+
+p {
+  font-size: 16px;
+  font-family: $second-font;
+  margin-bottom: 30px;
+  line-height: 24px;
+}
+
+.contact {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.email {
+  margin-bottom: 15px;
+}
+
+a {
+  color: #fbfbfb;
+}
+
+.footer__rights p {
+  margin: 50px 0 0 0;
+  border-top: 1px solid #cdd6e04d;
+  padding-top: 20px;
+}
