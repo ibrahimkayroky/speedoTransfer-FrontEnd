@@ -1,0 +1,27 @@
+<nav class="navbar">
+  <div class="navbar__logo">
+    <a href="/">Speedo Transfer</a>
+  </div>
+  <ul class="navbar__links">
+    <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+    <li><a routerLink="money-transfer">Money Transfer</a></li>
+    <li><a routerLink="my-account">My Account</a></li>
+    <li><a routerLink="help">Help</a></li>
+  </ul>
+
+  <div class="navbar__actions">
+    <app-button
+      routerLink="login"
+      buttonType="secondary"
+      buttonText="Login"
+      [ngClass]="'width-107'"
+      >Login</app-button
+    >
+    <app-button
+      routerLink="signup"
+      buttonType="primary"
+      buttonText="Register Now"
+      [ngClass]="'width-167'"
+    ></app-button>
+  </div>
+</nav>
