@@ -1,0 +1,41 @@
+$width: 501px;
+$height: 56px;
+$radius: 8px;
+$border: 1px solid;
+$color: #fff;
+$text: #b0afae;
+$labelText: #3c3a37;
+$font: "inter";
+$placeHolderwidth: 168.64px;
+$placeHolderHeight: 24px;
+$placeHolderPadding: 56px 0px 0px 26.24px;
+
+.input-field {
+  color: #000;
+  width: $width;
+  height: $height;
+  border: $border;
+  border-color: $text;
+  border-radius: $radius;
+  background-color: $color;
+
+  &::placeholder {
+    color: $text;
+    width: $placeHolderwidth;
+    height: $placeHolderHeight;
+    padding: $placeHolderPadding;
+  }
+}
+
+.data-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+label {
+  color: $labelText;
+  font-weight: 400;
+  font-family: $font;
+  margin-bottom: 8px;
+}
