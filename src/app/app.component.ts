@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ButtonComponent } from './shared_components/button/button.component';
+import { InputComponent } from './shared_components/input/input.component';
 import { FooterComponent } from './shared_components/footer/footer.component';
 import { NavBarComponent } from './shared_components/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -16,6 +17,7 @@ import { MobileApplicationComponent } from './shared_components/mobile-applicati
     RouterOutlet,
     FooterComponent,
     ButtonComponent,
+    InputComponent,
     NavBarComponent,
     HomeComponent,
     MoneyTransferComponent,
