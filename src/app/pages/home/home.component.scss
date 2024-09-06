@@ -7,6 +7,8 @@
   align-items: center;
   height: 800px;
   background-image: url(/assets/Rectangle1.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 .create-account {
@@ -176,9 +178,63 @@ ol {
   color: #871e35;
 }
 
-.card-text {
+.text {
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
   color: #3c3a37;
+}
+
+.mobile-application {
+  height: 695px;
+  padding: 65px 50px;
+  display: flex;
+  justify-content: space-around;
+  background-color: #f3e9eb;
+}
+
+.mobile-application-div {
+  width: 1250px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.mobile-application-img {
+  width: 625px;
+  height: 570px;
+  padding: 0 15px;
+}
+
+.mobile-application-content {
+  width: 625px;
+  padding: 30px 40px;
+}
+
+.align-text {
+  text-align: left;
+}
+
+.margin {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.content-list img,
+.content-list p {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 25px;
+}
+
+.content-list p {
+  margin-left: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #3c3a37;
+}
+
+.download img {
+  margin-top: 10px;
+  margin-left: 10px;
 }
