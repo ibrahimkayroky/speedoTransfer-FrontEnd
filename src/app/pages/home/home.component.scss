@@ -1,0 +1,94 @@
+* {
+  font-family: Inter;
+}
+.header-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 800px;
+  background-image: url(/assets/Rectangle1.png);
+}
+
+.create-account {
+  height: 425px;
+  width: 635px;
+  color: #fff;
+}
+
+.desc-header {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  line-height: 30px;
+}
+
+h2 {
+  font-size: 64px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  line-height: 96px;
+}
+
+.desc-body {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  width: 430px;
+  margin-bottom: 70px;
+}
+
+.continue {
+  height: 360px;
+  width: 480px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 32px;
+  gap: 32px;
+  color: #24221e;
+}
+
+.send-message {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  margin-bottom: 15px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+input {
+  width: 417px;
+  height: 56px;
+  border-radius: 8px;
+  border: 1px solid #e3e2e2;
+  padding-left: 16px;
+  margin-bottom: 35px;
+}
+
+.time {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #3c3a37;
+  margin-bottom: 35px;
+
+  &-span {
+    font-weight: 400;
+    color: #898886;
+  }
+}
+
+.agreement {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #898886;
+  margin-top: 35px;
+
+  &-span {
+    color: #871e35;
+  }
+}

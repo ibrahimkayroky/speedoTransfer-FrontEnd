@@ -1,1 +1,34 @@
-<p>home works!</p>
+<header class="header-section">
+  <div class="create-account">
+    <p class="desc-header">Simple.Quick.Secure</p>
+    <h2>Send Money Anywhere, Instantly</h2>
+    <p class="desc-body">
+      Fast, secure, and affordable international money transfers. Get started in
+      minutes
+    </p>
+    <app-button
+      routerLink="signup"
+      buttonType="primary"
+      buttonText="Create an Account"
+      [ngClass]="'width-501'"
+    ></app-button>
+  </div>
+  <div class="continue">
+    <p class="send-message">Send Amount</p>
+    <input type="number" placeholder="1000" />
+    <p class="time">
+      <span class="time-span">Delivery Time: </span>By May 20th
+    </p>
+    <app-button
+      routerLink="login"
+      style="width: 100%"
+      buttonType="primary"
+      buttonText="Continue"
+      [ngClass]="'width-417'"
+    ></app-button>
+    <p class="agreement">
+      By Clicking Continue, I agree with
+      <span class="agreement-span">Terms & Policy</span>
+    </p>
+  </div>
+</header>
