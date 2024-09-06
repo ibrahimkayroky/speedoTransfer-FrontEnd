@@ -42,6 +42,10 @@ $font-family: Inter;
         font-weight: 500;
         transition: color 0.3s ease;
 
+        &.active {
+          color: $primary-color;
+        }
+
         &:hover {
           color: $primary-color;
         }

@@ -1,12 +1,23 @@
 <nav class="navbar">
   <div class="navbar__logo">
-    <a href="/">Speedo Transfer</a>
+    <a routerLink="/">Speedo Transfer</a>
   </div>
   <ul class="navbar__links">
-    <li><a routerLink="/" routerLinkActive="active">Home</a></li>
-    <li><a routerLink="money-transfer">Money Transfer</a></li>
-    <li><a routerLink="my-account">My Account</a></li>
-    <li><a routerLink="help">Help</a></li>
+    <li>
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Home</a
+      >
+    </li>
+    <li>
+      <a routerLink="money-transfer" routerLinkActive="active"
+        >Money Transfer</a
+      >
+    </li>
+    <li><a routerLink="my-account" routerLinkActive="active">My Account</a></li>
+    <li><a routerLink="help" routerLinkActive="active">Help</a></li>
   </ul>
 
   <div class="navbar__actions">
