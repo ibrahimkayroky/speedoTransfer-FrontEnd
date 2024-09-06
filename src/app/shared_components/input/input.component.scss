@@ -38,4 +38,12 @@ label {
   font-weight: 400;
   font-family: $font;
   margin-bottom: 8px;
+
+  &.fontWeight {
+    font-weight: 500;
+  }
+
+  &.textColor {
+    color: #24221e;
+  }
 }
