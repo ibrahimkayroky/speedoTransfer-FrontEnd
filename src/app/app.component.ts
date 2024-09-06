@@ -7,6 +7,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { MoneyTransferComponent } from './pages/money-transfer/money-transfer.component';
 import { MyAccountComponent } from './pages/my-account/my-account.component';
 import { HelpComponent } from './pages/help/help.component';
+import { MobileApplicationComponent } from './shared_components/mobile-application/mobile-application.component';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +22,7 @@ import { HelpComponent } from './pages/help/help.component';
     MyAccountComponent,
     HelpComponent,
     FooterComponent,
+    MobileApplicationComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
