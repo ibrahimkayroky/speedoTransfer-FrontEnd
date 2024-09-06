@@ -1,1 +1,25 @@
-<p>login works!</p>
+<h1>Login here</h1>
+<p>Welcome back.Login to your account</p>
+<form>
+  <div>
+    <app-input
+      label="Your email address"
+      placeholder="Email@gmail.com"
+      required
+    ></app-input>
+
+    <small class="error">This Field Is Required</small>
+
+    <app-input label="Password" placeholder="************" required></app-input>
+    <small class="error">This Field Is Required</small>
+  </div>
+
+  <app-button
+    buttonType="primary"
+    buttonText="Login"
+    [ngClass]="'width-501'"
+  ></app-button>
+
+  <p>Don't have an account?</p>
+  <a href></a>
+</form>
