@@ -92,3 +92,93 @@ input {
     color: #871e35;
   }
 }
+
+.getting-started {
+  height: 635px;
+  background-color: #fbfbfb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  width: 920px;
+  height: 505px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #24221e;
+}
+
+.content-title-div {
+  width: 585px;
+  height: 165px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.content-title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  text-align: center;
+  color: #871e35;
+  margin-bottom: 20px;
+}
+
+.content-text {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 60px;
+  text-align: center;
+}
+
+.content-card {
+  width: 920px;
+  height: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  width: 295px;
+  height: 320px;
+  border-radius: 8px;
+  padding: 16px !important;
+  background-color: #fff;
+}
+
+.img-background {
+  width: 120px;
+  height: 120px;
+  background-color: #f3e9eb;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+ol {
+  padding: 16px;
+}
+
+.card-list-item {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 36px;
+}
+
+.card-list-item::marker {
+  color: #871e35;
+}
+
+.card-text {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #3c3a37;
+}
