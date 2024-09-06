@@ -11,4 +11,7 @@ import { CommonModule } from '@angular/common';
 export class InputComponent {
   @Input() label: string = 'Label';
   @Input() placeholder: string = 'placeholder';
+  @Input() name: string = 'name';
+  @Input() for: string = 'for';
+  @Input() type: string = 'text';
 }
