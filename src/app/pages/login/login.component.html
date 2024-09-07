@@ -1,25 +1,36 @@
-<h1>Login here</h1>
-<p>Welcome back.Login to your account</p>
-<form>
-  <div>
-    <app-input
-      label="Your email address"
-      placeholder="Email@gmail.com"
-      required
-    ></app-input>
-
-    <small class="error">This Field Is Required</small>
-
-    <app-input label="Password" placeholder="************" required></app-input>
-    <small class="error">This Field Is Required</small>
+<div class="login-page">
+  <div class="header-container">
+    <h1 class="login">Login</h1>
+    <p>New Account? <a>SignUp</a></p>
   </div>
 
-  <app-button
-    buttonType="primary"
-    buttonText="Login"
-    [ngClass]="'width-501'"
-  ></app-button>
+  <div class="form-container">
+    <div class="form-header">
+      <h2>Login Here</h2>
+      <p>Welcome back.Login to your account</p>
+    </div>
+    <form>
+      <app-input
+        label="Your email address"
+        placeholder="Email@gmail.com"
+        for="email"
+        type="email"
+      >
+      </app-input>
+      <!--small class="error">This Field Is Required</!--small-->
 
-  <p>Don't have an account?</p>
-  <a href></a>
-</form>
+      <app-input label="Password" placeholder="************" for="password">
+      </app-input>
+      <!--small class="error">This Field Is Required</!--small-->
+    </form>
+
+    <div>
+      <app-button
+        buttonType="primary"
+        buttonText="Login"
+        [ngClass]="'width-501'"
+      ></app-button>
+      <p>Don't have an account? <a>Create Account</a></p>
+    </div>
+  </div>
+</div>

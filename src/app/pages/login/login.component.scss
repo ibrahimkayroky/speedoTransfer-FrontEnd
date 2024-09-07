@@ -1,4 +1,108 @@
-.error {
-  color: red;
+$primary-color: #6c1c24;
+$secondary-color: #6c7686;
+$third-color: #24221e;
+$error-color: #ff0000;
+
+$font-family: "inter";
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: #f8f9fa;
+}
+
+.header-container {
+  text-align: center;
+  margin-bottom: 24px;
+
+  h1.login {
+    font-weight: 600;
+    color: $third-color;
+    margin-bottom: 8px;
+    font-family: $font-family;
+    font-size: 40px;
+    justify-content: center;
+  }
+
+  p {
+    font-size: 1rem;
+    color: $secondary-color;
+
+    a {
+      color: $secondary-color;
+      font-weight: 500;
+      font-family: $font-family;
+      text-decoration: none;
+      font-size: 16px;
+      height: 24px;
+      width: 60px;
+      text-decoration: underline;
+    }
+  }
+}
+
+.form-header {
+  width: 501px;
+  height: 88px;
+  gap: 16px;
+
+  h2 {
+    font-family: $font-family;
+    font-weight: 600;
+    font-size: 32px;
+    height: 48px;
+    color: $third-color;
+  }
+
+  p {
+    width: 100%;
+    height: 24px;
+    font-family: $font-family;
+    font-size: 16px;
+    margin-bottom: 32px;
+    color: $secondary-color;
+  }
+}
+.form-container {
+  background-color: #ffffff;
+  width: 565px;
+  height: 600px;
+  align-items: center;
+  padding: 64px 32px 64px 32px;
+  border-radius: 16px;
+  box-shadow: 0px 20px 32px rgba(108, 120, 134, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  form {
+    width: 100% fill;
+    gap: 32px;
+    height: 296px;
+  }
+}
+
+small.error {
+  color: $error-color;
   font-size: 12px;
+  margin: 0px 0px 10px 5px;
+  display: block;
+}
+
+p {
+  margin-top: 16px;
+  font-size: 1rem;
+
+  a {
+    font-weight: bold;
+    text-decoration: none;
+    color: $primary-color;
+    text-decoration: underline;
+  }
+  .button {
+    width: 100%;
+  }
 }
