@@ -1,0 +1,34 @@
+* {
+  font-family: Inter;
+}
+.header-section {
+  height: 405px;
+  background-color: #f3e9eb;
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  padding-left: 100px;
+  padding-right: 800px;
+}
+
+.section-title {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 72px;
+  margin-bottom: 20px;
+  color: #24221e;
+}
+
+.section-route {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #871e35;
+}
+
+span {
+  cursor: pointer;
+  color: #3c3a37;
+}
