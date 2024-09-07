@@ -14,8 +14,15 @@
     ></app-button>
   </div>
   <div class="continue">
-    <p class="send-message">Send Amount</p>
-    <input type="number" placeholder="1000" />
+    <app-input
+      label="Send Amount"
+      placeholder="1000"
+      type="number"
+      for="amount"
+      name="amount"
+      [ngClass]="'width-417'"
+      ngClass="'fontWeight"
+    ></app-input>
     <p class="time">
       <span class="time-span">Delivery Time: </span>By May 20th
     </p>
