@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { InputComponent } from '../../shared_components/input/input.component';
 import { ButtonComponent } from '../../shared_components/button/button.component';
 import { CommonModule } from '@angular/common';
@@ -10,4 +10,24 @@ import { CommonModule } from '@angular/common';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
-export class LoginComponent {}
+export class LoginComponent implements OnInit {
+  showWarning: boolean = false;
+  showLoginMessage: boolean = false;
+  hideCreateAccount: boolean = false;
+
+  ngOnInit(): void {
+    this.startInactivityTimer();
+  }
+
+  startInactivityTimer(): void {
+    setTimeout(() => {
+      this.showWarning = true;
+      this.showLoginMessage = true;
+      this.hideCreateAccount = true;
+    }, 12000);
+  }
+
+  closeWarning(): void {
+    this.showWarning = false;
+  }
+}
