@@ -1,1 +1,86 @@
-<p>login works!</p>
+<div class="login-page">
+  <!--Warning Message-->
+  <div class="warning" *ngIf="showWarning">
+    <div class="warningMessage">
+      <svg
+        class="warningIcon"
+        width="49"
+        height="48"
+        viewBox="0 0 49 48"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="24.8281" cy="24" r="24" fill="#24221E" />
+        <path
+          d="M28.6648 35.1304C28.6648 37.2383 26.9785 38.9667 24.8285 38.9667C22.6784 38.9667 20.9922 37.2383 20.9922 35.1304C20.9922 33.0226 22.6785 31.2942 24.8285 31.2942C26.9784 31.2942 28.6648 33.0226 28.6648 35.1304ZM26.5866 27.4579H23.0304C22.5033 27.4579 22.0693 27.0433 22.0452 26.5168L21.2923 10.0665C21.2666 9.50474 21.7152 9.03516 22.2775 9.03516H27.377C27.9403 9.03516 28.3891 9.50611 28.3621 10.0688L27.5716 26.5189C27.5464 27.0446 27.1128 27.4579 26.5866 27.4579Z"
+          fill="white"
+        />
+      </svg>
+
+      <span
+        >We logged you out because you were inactive for 2 minutes — this helps
+        keep your account secure.</span
+      >
+      <svg
+        class="closingIcon"
+        (click)="closeWarning()"
+        width="49"
+        height="48"
+        viewBox="0 0 49 48"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14.4414 34.4876L24.9274 24.0016L35.4134 34.4876M35.4134 13.5156L24.9254 24.0016L14.4414 13.5156"
+          stroke="#24221E"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </div>
+  </div>
+
+  <!--Header Container-->
+  <div class="header-container">
+    <h1 *ngIf="!hideCreateAccount">Login</h1>
+    <p *ngIf="!hideCreateAccount">New Account? <a>SignUp</a></p>
+  </div>
+
+  <!--Form Conatiner With Login Message-->
+  <div class="form-container">
+    <div class="form-header">
+      <h2 *ngIf="!hideCreateAccount">Login Here</h2>
+      <p *ngIf="!hideCreateAccount">Welcome back.Login to your account</p>
+
+      <h2 *ngIf="showLoginMessage">Welcom Back</h2>
+      <p *ngIf="showLoginMessage">Login to your account</p>
+    </div>
+
+    <!--Login Form-->
+    <form>
+      <app-input
+        label="Your email address"
+        placeholder="Email@gmail.com"
+        for="email"
+        type="email"
+      >
+      </app-input>
+      <!--small class="error">This Field Is Required</!--small-->
+
+      <app-input label="Password" placeholder="************" for="password">
+      </app-input>
+      <!--small class="error">This Field Is Required</!--small-->
+    </form>
+
+    <div>
+      <app-button buttonType="primary" buttonText="Login"></app-button>
+      <p *ngIf="!hideCreateAccount">
+        Don't have an account? <a>Create Account</a>
+      </p>
+    </div>
+  </div>
+</div>
+<footer>
+  <p>©Speedo Transfer Payments Limited 2024</p>
+</footer>
