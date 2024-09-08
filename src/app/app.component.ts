@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { FooterComponent } from './shared_components/footer/footer.component';
 import { NavBarComponent } from './shared_components/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MoneyTransferComponent } from './pages/money-transfer/money-transfer.component';
@@ -12,13 +11,11 @@ import { HelpComponent } from './pages/help/help.component';
   standalone: true,
   imports: [
     RouterOutlet,
-    FooterComponent,
     NavBarComponent,
     HomeComponent,
     MoneyTransferComponent,
     MyAccountComponent,
     HelpComponent,
-    FooterComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
