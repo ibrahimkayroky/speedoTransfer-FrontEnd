@@ -20,7 +20,8 @@
     <li><a routerLink="help" routerLinkActive="active">Help</a></li>
   </ul>
 
-  <div class="navbar__actions">
+  <!-- show when user is not logged in -->
+  <div class="navbar__actions" *ngIf="!isLoggedIn()">
     <app-button
       routerLink="login"
       buttonType="secondary"
@@ -34,5 +35,24 @@
       buttonText="Register Now"
       [ngClass]="'width-167'"
     ></app-button>
+  </div>
+
+  <!-- Show when user is logged in -->
+  <div class="navbar__user" *ngIf="isLoggedIn()" (click)="toggleDropdown()">
+    <a class="navbar__user-name">
+      <span class="user-initials">{{ user.name | initialNames }}</span>
+      {{ user.name }}
+      <span>
+        <i class="icon-arrow-down"></i>
+      </span>
+    </a>
+
+    <ul class="navbar__user-menu" *ngIf="isDropdownOpen">
+      <li><a routerLink="my-account">My Account</a></li>
+      <li><a routerLink="my-account">Payment History</a></li>
+      <li><a routerLink="my-account">Settings</a></li>
+      <li><a routerLink="my-account">Change Password</a></li>
+      <li><a (click)="logout()">Logout</a></li>
+    </ul>
   </div>
 </nav>
