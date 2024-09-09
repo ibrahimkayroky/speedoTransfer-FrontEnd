@@ -9,6 +9,7 @@ import { HomeComponent } from '../home/home.component';
 @Component({
   selector: 'app-login',
   standalone: true,
+
   imports: [
     InputComponent,
     ButtonComponent,

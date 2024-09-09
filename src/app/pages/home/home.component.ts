@@ -5,6 +5,7 @@ import { RouterLink } from '@angular/router';
 import { MobileApplicationComponent } from '../../shared_components/mobile-application/mobile-application.component';
 import { InputComponent } from '../../shared_components/input/input.component';
 import { NavBarComponent } from '../../shared_components/navbar/navbar.component';
+import { FooterComponent } from '../../shared_components/footer/footer.component';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,7 @@ import { NavBarComponent } from '../../shared_components/navbar/navbar.component
     MobileApplicationComponent,
     InputComponent,
     NavBarComponent,
+    FooterComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

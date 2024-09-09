@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
 import { NavBarComponent } from '../../shared_components/navbar/navbar.component';
+import { MobileApplicationComponent } from '../../shared_components/mobile-application/mobile-application.component';
+import { FooterComponent } from '../../shared_components/footer/footer.component';
+import { HeaderComponent } from '../../shared_components/header/header.component';
+
 
 @Component({
   selector: 'app-my-account',
   standalone: true,
-  imports: [NavBarComponent],
+  imports: [MobileApplicationComponent, FooterComponent, HeaderComponent,NavBarComponent],
+
   templateUrl: './my-account.component.html',
   styleUrl: './my-account.component.scss',
 })
