@@ -6,12 +6,15 @@ import { MobileApplicationComponent } from '../../shared_components/mobile-appli
 import { FooterComponent } from '../../shared_components/footer/footer.component';
 import { HeaderComponent } from '../../shared_components/header/header.component';
 
-
 @Component({
   selector: 'app-money-transfer',
   standalone: true,
-  imports: [NavBarComponent],
-  imports: [NavBarComponent,MobileApplicationComponent, FooterComponent, HeaderComponent],
+  imports: [
+    NavBarComponent,
+    MobileApplicationComponent,
+    FooterComponent,
+    HeaderComponent,
+  ],
 
   templateUrl: './money-transfer.component.html',
   styleUrl: './money-transfer.component.scss',
