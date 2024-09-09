@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { NavBarComponent } from '../../shared_components/navbar/navbar.component';
 
 @Component({
   selector: 'app-my-account',
   standalone: true,
-  imports: [],
+  imports: [NavBarComponent],
   templateUrl: './my-account.component.html',
-  styleUrl: './my-account.component.scss'
+  styleUrl: './my-account.component.scss',
 })
-export class MyAccountComponent {
-
-}
+export class MyAccountComponent {}

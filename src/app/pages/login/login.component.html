@@ -1,3 +1,27 @@
+<nav class="navbar">
+  <div class="navbar__logo">
+    <a routerLink="/">Speedo Transfer</a>
+  </div>
+  <div>
+    <svg
+      routerLink="/"
+      class="closingIcon"
+      width="49"
+      height="48"
+      viewBox="0 0 49 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M14.4414 34.4876L24.9274 24.0016L35.4134 34.4876M35.4134 13.5156L24.9254 24.0016L14.4414 13.5156"
+        stroke="#24221E"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </div>
+</nav>
 <div class="login-page">
   <!--Warning Message-->
   <div class="warning" *ngIf="showWarning">
@@ -44,7 +68,9 @@
   <!--Header Container-->
   <div class="header-container">
     <h1 *ngIf="!hideCreateAccount">Login</h1>
-    <p *ngIf="!hideCreateAccount">New Account? <a>SignUp</a></p>
+    <p *ngIf="!hideCreateAccount">
+      New Account? <a routerLink="/signup">SignUp</a>
+    </p>
   </div>
 
   <!--Form Conatiner With Login Message-->
@@ -59,24 +85,35 @@
 
     <!--Login Form-->
     <form>
-      <app-input
-        label="Your email address"
-        placeholder="Email@gmail.com"
-        for="email"
-        type="email"
-      >
-      </app-input>
+      <div style="width: 501px">
+        <app-input
+          label="Your email address"
+          placeholder="Email@gmail.com"
+          for="email"
+          type="email"
+        >
+        </app-input>
+      </div>
       <!--small class="error">This Field Is Required</!--small-->
 
-      <app-input label="Password" placeholder="************" for="password">
+      <app-input
+        label="Password"
+        placeholder="************"
+        for="password"
+        type="password"
+      >
       </app-input>
       <!--small class="error">This Field Is Required</!--small-->
     </form>
 
-    <div>
-      <app-button buttonType="primary" buttonText="Login"></app-button>
+    <div style="width: 100%">
+      <app-button
+        buttonType="primary"
+        buttonText="Login"
+        routerLink="/"
+      ></app-button>
       <p *ngIf="!hideCreateAccount">
-        Don't have an account? <a>Create Account</a>
+        Don't have an account? <a routerLink="/signup">Create Account</a>
       </p>
     </div>
   </div>

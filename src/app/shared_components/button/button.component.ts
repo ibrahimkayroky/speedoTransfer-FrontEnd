@@ -10,5 +10,5 @@ import { CommonModule } from '@angular/common';
 })
 export class ButtonComponent {
   @Input() buttonType: 'primary' | 'secondary' = 'primary';
-  @Input() buttonText: string = 'Click  Me';
+  @Input() buttonText: string = 'Click Me';
 }

@@ -1,9 +1,21 @@
-<div class="data-container">
-  <label [for]="for">{{ label }}</label>
-  <input
-    type="text"
-    [placeholder]="placeholder"
-    class="input-field"
-    name="name"
-  />
+<div class="input-wrapper">
+  <div class="data-container">
+    <label [for]="for">{{ label }}</label>
+    <div class="input-icon-wrapper">
+      <input
+        type="text"
+        [placeholder]="placeholder"
+        class="input-field"
+        name="name"
+        [(ngModel)]="value"
+      />
+      <img
+        *ngIf="type === 'password'"
+        src="/assets/eye-CLOSE.png"
+        alt="eye close"
+        class="eye-icon"
+        (click)="togglePasswordVisibility()"
+      />
+    </div>
+  </div>
 </div>
