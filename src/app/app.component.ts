@@ -8,6 +8,9 @@ import { HelpComponent } from './pages/help/help.component';
 import { PaymentHistoryComponent } from './pages/payment-history/payment-history/payment-history.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password/change-password.component';
 import { SettingsComponent } from './pages/settings/settings/settings.component';
+import { MobileApplicationComponent } from './shared_components/mobile-application/mobile-application.component';
+import { LoginComponent } from './pages/login/login.component';
+
 
 @Component({
   selector: 'app-root',
@@ -22,6 +25,9 @@ import { SettingsComponent } from './pages/settings/settings/settings.component'
     PaymentHistoryComponent,
     SettingsComponent,
     ChangePasswordComponent,
+    FooterComponent,
+    MobileApplicationComponent,
+    LoginComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

@@ -1,0 +1,11 @@
+@mixin logo-styles($logo-color) {
+  font-size: 2rem;
+  font-weight: 600;
+  flex-grow: 1;
+
+  a {
+    text-decoration: none;
+    color: $logo-color;
+    width: 150px;
+  }
+}
