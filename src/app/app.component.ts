@@ -11,7 +11,6 @@ import { SettingsComponent } from './pages/settings/settings/settings.component'
 import { MobileApplicationComponent } from './shared_components/mobile-application/mobile-application.component';
 import { LoginComponent } from './pages/login/login.component';
 
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -25,7 +24,6 @@ import { LoginComponent } from './pages/login/login.component';
     PaymentHistoryComponent,
     SettingsComponent,
     ChangePasswordComponent,
-    FooterComponent,
     MobileApplicationComponent,
     LoginComponent,
   ],
