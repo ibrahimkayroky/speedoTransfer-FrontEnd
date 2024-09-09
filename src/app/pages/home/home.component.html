@@ -1,3 +1,4 @@
+<app-nav></app-nav>
 <header class="header-section">
   <div class="create-account">
     <p class="desc-header">Simple.Quick.Secure</p>
@@ -6,12 +7,13 @@
       Fast, secure, and affordable international money transfers. Get started in
       minutes
     </p>
-    <app-button
-      routerLink="signup"
-      buttonType="primary"
-      buttonText="Create an Account"
-      [ngClass]="'width-501'"
-    ></app-button>
+    <div style="width: 35%">
+      <app-button
+        routerLink="signup"
+        buttonType="primary"
+        buttonText="Create an Account"
+      ></app-button>
+    </div>
   </div>
   <div class="continue">
     <app-input
@@ -28,10 +30,8 @@
     </p>
     <app-button
       routerLink="login"
-      style="width: 100%"
       buttonType="primary"
       buttonText="Continue"
-      [ngClass]="'width-417'"
     ></app-button>
     <p class="agreement">
       By Clicking Continue, I agree with

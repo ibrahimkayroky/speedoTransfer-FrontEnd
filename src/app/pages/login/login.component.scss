@@ -4,6 +4,29 @@ $third-color: #24221e;
 $error-color: #ff0000;
 $font-family: "inter";
 
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem 4rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  &__logo {
+    font-size: 2rem;
+    font-weight: 600;
+    flex-grow: 1;
+    a {
+      text-decoration: none;
+      color: $third-color;
+      width: 150px;
+    }
+  }
+
+  .closingIcon {
+    cursor: pointer;
+  }
+}
 .login-page {
   display: flex;
   flex-direction: column;
@@ -153,6 +176,9 @@ footer {
     span {
       font-size: 16px;
       color: #333;
+    }
+    .closingIcon {
+      cursor: pointer;
     }
   }
 }

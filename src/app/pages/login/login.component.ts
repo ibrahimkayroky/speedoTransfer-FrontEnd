@@ -2,11 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { InputComponent } from '../../shared_components/input/input.component';
 import { ButtonComponent } from '../../shared_components/button/button.component';
 import { CommonModule } from '@angular/common';
+import { SignupComponent } from '../signup/signup.component';
+import { RouterLink } from '@angular/router';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [InputComponent, ButtonComponent, CommonModule],
+
+  imports: [
+    InputComponent,
+    ButtonComponent,
+    CommonModule,
+    SignupComponent,
+    RouterLink,
+    HomeComponent,
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
