@@ -7,11 +7,13 @@ import { AccountSidebarComponent } from '../../shared_components/account-sidebar
 import { ChangePasswordComponent } from '../change-password/change-password.component';
 import { PaymentHistoryComponent } from '../payment-history/payment-history.component';
 import { SettingsComponent } from '../settings/settings.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-my-account',
   standalone: true,
   imports: [
+    RouterOutlet,
     MobileApplicationComponent,
     FooterComponent,
     HeaderComponent,
