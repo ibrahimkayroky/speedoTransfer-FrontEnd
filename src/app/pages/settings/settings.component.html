@@ -1,1 +1,49 @@
-<p>settings works!</p>
+<h1>Settings</h1>
+
+<ul class="sub-nav">
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+    <a routerLink="/my-account/settings" routerLinkActive="active">Profile</a>
+  </li>
+  <li routerLinkActive="active">
+    <a routerLink="/my-account/change-password">Change Password</a>
+  </li>
+</ul>
+
+<app-input
+  label="Full Name"
+  placeholder="Jonathon Smith"
+  type="text"
+  for="name"
+  name="name"
+></app-input>
+
+<app-input
+  label="Country"
+  placeholder="UK"
+  type="text"
+  for="country"
+  name="country"
+></app-input>
+
+<div class="contact">
+  <app-input
+    label="Phone"
+    placeholder="+880125412624"
+    type="number"
+    for="phone-number"
+    name="phone-number"
+    class="input-width"
+  ></app-input>
+  <app-input
+    label="Email"
+    placeholder="jhonathonsmith@gmail.com"
+    type="Email"
+    for="email"
+    name="email"
+    class="input-width"
+  ></app-input>
+</div>
+
+<div class="btn-width">
+  <app-button buttonType="primary" buttonText="Update Profile"></app-button>
+</div>
