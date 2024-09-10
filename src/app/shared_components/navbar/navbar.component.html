@@ -17,7 +17,9 @@
       >
     </li>
     <li>
-      <a routerLink="/my-account" routerLinkActive="active">My Account</a>
+      <a routerLink="/my-account/my-profile" routerLinkActive="active"
+        >My Account</a
+      >
     </li>
     <li><a routerLink="/help" routerLinkActive="active">Help</a></li>
   </ul>
@@ -50,7 +52,7 @@
     </a>
 
     <ul class="navbar__user-menu" *ngIf="isDropdownOpen">
-      <li><a routerLink="/my-account">My Account</a></li>
+      <li><a routerLink="/my-account/my-profile">My Account</a></li>
       <li><a routerLink="/my-account/payment-history">Payment History</a></li>
       <li><a routerLink="/my-account/settings">Settings</a></li>
       <li><a routerLink="/my-account/change-password">Change Password</a></li>
