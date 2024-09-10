@@ -40,6 +40,7 @@
         placeholder="Full name"
         for="name"
         type="name"
+        required
       >
       </app-input>
       <!--small class="error">This Field Is Required</!--small-->
@@ -49,6 +50,7 @@
         placeholder="Email Address"
         for="email"
         type="email"
+        required
       >
       </app-input>
 
@@ -56,7 +58,7 @@
         <label>Country</label>
         <div class="input-icon-wrapper">
           <div class="country">
-            <select type="select" placeholder="Country">
+            <select type="select" placeholder="Country" required>
               @for (country of countries; track $index) {
               <option>{{ country.name }}</option>
               }
@@ -68,12 +70,18 @@
       <label>Date of birth</label>
       <div class="DOB-container">
         <div class="dayOfBirth">
-          <app-input label="Day" placeholder="DD" for="day" type="number">
+          <app-input
+            label="Day"
+            placeholder="DD"
+            for="day"
+            type="number"
+            required
+          >
           </app-input>
         </div>
         <div class="monthOfBirth">
           <label>Month</label>
-          <select placeholder="MM">
+          <select placeholder="MM" required>
             @for (month of months; track $index) {
             <option>{{ month.name }}</option>
             }
@@ -81,7 +89,7 @@
         </div>
         <div class="yearOfBirth">
           <label>Year</label>
-          <select placeholder="YYYY">
+          <select placeholder="YYYY" required>
             @for (year of years; track $index) {
             <option>{{ year.name }}</option>
             }
@@ -94,6 +102,7 @@
         placeholder="************"
         for="password"
         type="password"
+        required
       >
       </app-input>
 
@@ -102,6 +111,7 @@
         placeholder="************"
         for="cpnfirmpassword"
         type="password"
+        required
       >
       </app-input>
       <p>

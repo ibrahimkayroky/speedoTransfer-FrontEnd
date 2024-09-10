@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NavBarComponent } from '../../shared_components/navbar/navbar.component';
 import { MobileApplicationComponent } from '../../shared_components/mobile-application/mobile-application.component';
 import { FooterComponent } from '../../shared_components/footer/footer.component';
@@ -7,15 +7,12 @@ import { FormsModule } from '@angular/forms';
 import { InputComponent } from '../../shared_components/input/input.component';
 import { ButtonComponent } from '../../shared_components/button/button.component';
 import { FavoriteComponent } from '../favorite/favorite.component';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { PersonInfoComponent } from '../../shared_components/person-info/person-info.component';
-import { AmountComponent } from '../amount/amount.component';
-import { ConfirmationComponent } from '../confirmation/confirmation.component';
-import { PaymentComponent } from '../payment/payment.component';
 
 @Component({
-  selector: 'app-money-transfer',
+  selector: 'app-payment',
   standalone: true,
   imports: [
     NavBarComponent,
@@ -29,31 +26,10 @@ import { PaymentComponent } from '../payment/payment.component';
     RouterLink,
     CommonModule,
     PersonInfoComponent,
-    AmountComponent,
-    ConfirmationComponent,
-    PaymentComponent,
-    RouterOutlet,
   ],
-
-  templateUrl: './money-transfer.component.html',
-  styleUrl: './money-transfer.component.scss',
+  templateUrl: './payment.component.html',
+  styleUrl: './payment.component.scss',
 })
-export class MoneyTransferComponent implements OnInit {
-  showFavoriteList: boolean = false;
-  hideMoneyTransfer: boolean = false;
-  isDropdownOpen = false;
-
-  ngOnInit(): void {
-    this.startInactivityTimer();
-  }
-
-  toggleDropdown(): boolean {
-    return (this.isDropdownOpen = !this.isDropdownOpen);
-  }
-  startInactivityTimer(): void {
-    if (this.toggleDropdown() == true) {
-      this.showFavoriteList = true;
-      this.hideMoneyTransfer = true;
-    }
-  }
+export class PaymentComponent {
+  @Input() amount: string = 'Amount';
 }
