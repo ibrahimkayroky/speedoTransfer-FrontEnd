@@ -84,40 +84,81 @@
     </div>
 
     <!--Login Form-->
-    <form>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div style="width: 501px">
         <app-input
           label="Your email address"
           placeholder="Email@gmail.com"
           for="email"
           type="email"
-          required
+          [controlName]="'email'"
+          [form]="loginForm"
         >
         </app-input>
+        <div
+          *ngIf="
+            loginForm.get('email')?.invalid && loginForm.get('email')?.touched
+          "
+        >
+          <small *ngIf="loginForm.get('email')?.errors?.['required']"
+            >Email is required.</small
+          >
+          <small *ngIf="loginForm.get('email')?.errors?.['email']"
+            >Invalid email format.</small
+          >
+        </div>
       </div>
       <!--small class="error">This Field Is Required</!--small-->
+      <div style="width: 501px">
+        <app-input
+          label="Password"
+          placeholder="************"
+          for="password"
+          type="password"
+          [controlName]="'password'"
+          [form]="loginForm"
+        >
+        </app-input>
+        <!--small class="error">This Field Is Required</!--small-->
+        <div
+          *ngIf="
+            loginForm.get('password')?.invalid &&
+            loginForm.get('password')?.touched
+          "
+        >
+          <small *ngIf="loginForm.get('password')?.errors?.['required']"
+            >Password is required.</small
+          >
+          <small *ngIf="loginForm.get('password')?.errors?.['minlength']"
+            >Password must be at least 8 characters long.</small
+          >
+        </div>
+      </div>
+      <div style="width: 100%">
+        <app-button
+          buttonType="primary"
+          buttonText="Login"
+          type="submit"
+        ></app-button>
 
-      <app-input
-        label="Password"
-        placeholder="************"
-        for="password"
-        type="password"
-        required
-      >
-      </app-input>
-      <!--small class="error">This Field Is Required</!--small-->
+        <!--form is invalid-->
+        <div *ngIf="formSubmitted && loginForm.invalid">
+          <p style="color: red">
+            Please fix the errors in the form before submitting.
+          </p>
+        </div>
+
+        <!--form is valid and submitted -->
+        <div *ngIf="formSubmitted && loginForm.valid" class="success-message">
+          <p style="color: red">Form Submitted Successfully!</p>
+        </div>
+
+        <!--Create Account-->
+        <p *ngIf="!hideCreateAccount">
+          Don't have an account? <a routerLink="/signup">Create Account</a>
+        </p>
+      </div>
     </form>
-
-    <div style="width: 100%">
-      <app-button
-        buttonType="primary"
-        buttonText="Login"
-        routerLink="/"
-      ></app-button>
-      <p *ngIf="!hideCreateAccount">
-        Don't have an account? <a routerLink="/signup">Create Account</a>
-      </p>
-    </div>
   </div>
 </div>
 <footer>
