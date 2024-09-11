@@ -23,6 +23,7 @@ export class InputComponent implements OnInit {
   @Input() options: string[] = [];
   @Input() controlName: string = '';
   @Input() form!: FormGroup;
+
   selectValue: string = '';
   value: string = '';
   isPasswordVisible: boolean = false;

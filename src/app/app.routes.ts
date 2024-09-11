@@ -13,11 +13,7 @@ import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { AmountComponent } from './pages/amount/amount.component';
 import { ConfirmationComponent } from './pages/confirmation/confirmation.component';
 import { FavoriteComponent } from './pages/favorite/favorite.component';
-
-import { AmountComponent } from './pages/amount/amount.component';
-import { ConfirmationComponent } from './pages/confirmation/confirmation.component';
 import { PaymentComponent } from './pages/payment/payment.component';
-import { FavoriteComponent } from './pages/favorite/favorite.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -27,11 +23,13 @@ export const routes: Routes = [
     children: [
       { path: 'amount', component: AmountComponent },
       { path: 'confirmation', component: ConfirmationComponent },
-      { path: 'payment', component: PaymentHistoryComponent },
+      { path: 'payment', component: PaymentComponent },
       { path: 'favorite', component: FavoriteComponent },
     ],
   },
-  { path: 'my-account', component: MyAccountComponent,
+  {
+    path: 'my-account',
+    component: MyAccountComponent,
     children: [
       { path: 'my-profile', component: MyProfileComponent },
       { path: 'payment-history', component: PaymentHistoryComponent },
