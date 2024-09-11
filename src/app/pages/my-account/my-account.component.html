@@ -1,6 +1,11 @@
-
 <app-nav></app-nav>
 <app-header title="My Account"></app-header>
-<p>my-account works!</p>
+<div class="body-section">
+  <app-account-sidebar></app-account-sidebar>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
 <app-mobile-application></app-mobile-application>
 <app-footer></app-footer>

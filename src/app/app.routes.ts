@@ -6,19 +6,35 @@ import { HelpComponent } from './pages/help/help.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { ErrorComponent } from './pages/error/error.component';
-import { PaymentHistoryComponent } from './pages/payment-history/payment-history/payment-history.component';
-import { SettingsComponent } from './pages/settings/settings/settings.component';
-import { ChangePasswordComponent } from './pages/change-password/change-password/change-password.component';
+import { PaymentHistoryComponent } from './pages/payment-history/payment-history.component';
+import { SettingsComponent } from './pages/settings/settings.component';
+import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'money-transfer', component: MoneyTransferComponent },
+  {
+    path: 'money-transfer',
+    component: MoneyTransferComponent,
+    children: [
+      { path: 'amount', component: AmountComponent },
+      { path: 'confirmation', component: ConfirmationComponent },
+      { path: 'payment', component: PaymentComponent },
+      { path: 'favorite', component: FavoriteComponent },
+    ],
+  },
   { path: 'my-account', component: MyAccountComponent },
+    path: 'my-account',
+    component: MyAccountComponent,
+    children: [
+      { path: 'my-profile', component: MyProfileComponent },
+      { path: 'payment-history', component: PaymentHistoryComponent },
+      { path: 'settings', component: SettingsComponent },
+      { path: 'change-password', component: ChangePasswordComponent },
+    ],
+  },
   { path: 'help', component: HelpComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'payment-history', component: PaymentHistoryComponent },
-  { path: 'settings', component: SettingsComponent },
-  { path: 'change-password', component: ChangePasswordComponent },
   { path: '**', component: ErrorComponent },
 ];
