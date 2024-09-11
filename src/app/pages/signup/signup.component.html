@@ -34,31 +34,65 @@
     </div>
 
     <!--Register Form-->
-    <form>
-      <app-input
-        label="Full name"
-        placeholder="Full name"
-        for="name"
-        type="name"
-        required
-      >
-      </app-input>
-      <!--small class="error">This Field Is Required</!--small-->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <!--Full Name-->
+      <div class="input-wrapper">
+        <div class="data-container">
+          <label for="name">Full Name</label>
+          <div class="input-icon-wrapper">
+            <input
+              type="name"
+              placeholder="Full Name"
+              class="input-field"
+              name="name"
+              formControlName="name"
+              required
+            />
+          </div>
+        </div>
+      </div>
 
-      <app-input
-        label="Email"
-        placeholder="Email Address"
-        for="email"
-        type="email"
-        required
+      <!--Email-->
+      <div class="input-wrapper">
+        <div class="data-container">
+          <label for="email">Email</label>
+          <div class="input-icon-wrapper">
+            <input
+              type="email"
+              placeholder="Email Address"
+              class="input-field"
+              name="email"
+              formControlName="email"
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        *ngIf="
+          loginForm.get('email')?.invalid && loginForm.get('email')?.touched
+        "
       >
-      </app-input>
+        <small *ngIf="loginForm.get('email')?.errors?.['required']"
+          >Email is required.</small
+        >
+        <small *ngIf="loginForm.get('email')?.errors?.['email']"
+          >Invalid email format.</small
+        >
+      </div>
 
       <div class="input-wrapper">
         <label>Country</label>
         <div class="input-icon-wrapper">
           <div class="country">
-            <select type="select" placeholder="Country" required>
+            <select
+              type="select"
+              placeholder="Country"
+              required
+              formControlName="country"
+              name="country"
+              required
+            >
               @for (country of countries; track $index) {
               <option>{{ country.name }}</option>
               }
@@ -70,18 +104,31 @@
       <label>Date of birth</label>
       <div class="DOB-container">
         <div class="dayOfBirth">
-          <app-input
-            label="Day"
-            placeholder="DD"
-            for="day"
-            type="number"
-            required
-          >
-          </app-input>
+          <!--Day-->
+          <div class="input-wrapper">
+            <div class="data-container">
+              <label for="day">Day</label>
+              <div class="input-icon-wrapper">
+                <input
+                  type="text"
+                  placeholder="DD"
+                  class="input-field"
+                  name="dayOfBirth"
+                  formControlName="dayOfBirth"
+                  required
+                />
+              </div>
+            </div>
+          </div>
         </div>
         <div class="monthOfBirth">
           <label>Month</label>
-          <select placeholder="MM" required>
+          <select
+            placeholder="MM"
+            formControlName="monthOfBirth"
+            name="monthOfBirth"
+            required
+          >
             @for (month of months; track $index) {
             <option>{{ month.name }}</option>
             }
@@ -89,7 +136,12 @@
         </div>
         <div class="yearOfBirth">
           <label>Year</label>
-          <select placeholder="YYYY" required>
+          <select
+            placeholder="YYYY"
+            formControlName="yearOfBirth"
+            name="yearOfBirth"
+            required
+          >
             @for (year of years; track $index) {
             <option>{{ year.name }}</option>
             }
@@ -97,39 +149,88 @@
         </div>
       </div>
 
-      <app-input
-        label="Password"
-        placeholder="************"
-        for="password"
-        type="password"
-        required
+      <!--Password-->
+      <div class="input-wrapper">
+        <div class="data-container">
+          <label for="password">Password</label>
+          <div class="input-icon-wrapper">
+            <input
+              type="password"
+              placeholder="************"
+              class="input-field"
+              name="password"
+              formControlName="password"
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        *ngIf="
+          loginForm.get('password')?.invalid &&
+          loginForm.get('password')?.touched
+        "
       >
-      </app-input>
+        <small *ngIf="loginForm.get('password')?.errors?.['required']"
+          >Password is required.</small
+        >
+        <small *ngIf="loginForm.get('password')?.errors?.['minlength']"
+          >Password must be at least 8 characters long.</small
+        >
+      </div>
 
-      <app-input
-        label="Confirm Password"
-        placeholder="************"
-        for="cpnfirmpassword"
-        type="password"
-        required
-      >
-      </app-input>
-      <p>
+      <!--ConfirmPassword-->
+      <div class="input-wrapper">
+        <div class="data-container">
+          <label for="password">Confirm Password</label>
+          <div class="input-icon-wrapper">
+            <input
+              type="password"
+              placeholder="************"
+              class="input-field"
+              name="confirmpassword"
+              formControlName="confirmpassword"
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <!-- Show password mismatch error -->
+      <div *ngIf="loginForm.errors?.['passwordsDontMatch'] && formSubmitted">
+        <small>Passwords do not match.</small>
+      </div>
+      <p style="margin: 10px">
         The password should be at least eight characters long. To make it
         stronger, use upper and lower case letters, numbers, and symbols like !
         " ? $ % ^ &
       </p>
-      <!--small class="error">This Field Is Required</!--small-->
+      <div style="width: 100%" style="margin: 20px">
+        <app-button
+          (click)="signUp()"
+          buttonType="primary"
+          buttonText="Create an Account"
+          type="submit"
+        >
+        </app-button>
+
+        <!--form is invalid-->
+        <div *ngIf="formSubmitted && loginForm.invalid">
+          <p style="color: red">
+            Please fix the errors in the form before submitting.
+          </p>
+        </div>
+
+        <!--form is valid and submitted -->
+        <div *ngIf="formSubmitted && loginForm.valid" class="success-message">
+          <p style="color: red">Form Submitted Successfully!</p>
+        </div>
+      </div>
     </form>
-    <div style="width: 100%">
-      <app-button
-        (click)="signUp()"
-        buttonType="primary"
-        buttonText="Create an Account"
-      >
-      </app-button>
-      <p>Already have an account? <a routerLink="/login">Login</a></p>
-    </div>
+
+    <!--Login-->
+    <p style="margin: 50px">
+      Already have an account? <a routerLink="/login">Login</a>
+    </p>
   </div>
 </div>
 <footer>
