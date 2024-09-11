@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { SignupComponent } from '../signup/signup.component';
 import { RouterLink } from '@angular/router';
 import { HomeComponent } from '../home/home.component';
+import { Router } from '@angular/router';
+
 import {
   FormBuilder,
   FormGroup,
@@ -35,23 +37,30 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   formSubmitted = false;
 
+  private timeoutHandle: any;
+  private inactivityTimeLimit: number = 120000;
+
   ngOnInit(): void {
     this.startInactivityTimer();
   }
 
   startInactivityTimer(): void {
-    setTimeout(() => {
-      this.showWarning = true;
-      this.showLoginMessage = true;
-      this.hideCreateAccount = true;
-    }, 12000);
+    clearTimeout(this.timeoutHandle);
+    this.timeoutHandle = setTimeout(() =>
+      setTimeout(() => {
+        this.showWarning = true;
+        this.showLoginMessage = true;
+        this.hideCreateAccount = true;
+        this.logoutUser();
+      }, 12000)
+    );
   }
 
   closeWarning(): void {
     this.showWarning = false;
   }
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
@@ -63,8 +72,13 @@ export class LoginComponent implements OnInit {
     this.formSubmitted = true;
     if (this.loginForm.valid) {
       console.log('Form Submitted Successfully:', this.loginForm.value);
+      this.router.navigate(['/']);
     } else {
       console.log('Form not valid');
     }
+  }
+
+  logoutUser() {
+    console.log('User is being logged out due to inactivity.');
   }
 }
