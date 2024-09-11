@@ -13,8 +13,17 @@ import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'money-transfer', component: MoneyTransferComponent },
   {
+    path: 'money-transfer',
+    component: MoneyTransferComponent,
+    children: [
+      { path: 'amount', component: AmountComponent },
+      { path: 'confirmation', component: ConfirmationComponent },
+      { path: 'payment', component: PaymentComponent },
+      { path: 'favorite', component: FavoriteComponent },
+    ],
+  },
+  { path: 'my-account', component: MyAccountComponent },
     path: 'my-account',
     component: MyAccountComponent,
     children: [

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../button/button.component';
 import { AuthService } from '../../services/services/auth.service';
 import { InitialNamesPipe } from '../../pipes/initial-names.pipe';
+import { AmountComponent } from '../../pages/amount/amount.component';
 
 @Component({
   selector: 'app-nav',
@@ -14,6 +15,7 @@ import { InitialNamesPipe } from '../../pipes/initial-names.pipe';
     CommonModule,
     RouterLinkActive,
     InitialNamesPipe,
+    AmountComponent,
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
