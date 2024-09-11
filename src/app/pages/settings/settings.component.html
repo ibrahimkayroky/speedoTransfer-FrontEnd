@@ -8,40 +8,65 @@
     <a routerLink="/my-account/change-password">Change Password</a>
   </li>
 </ul>
-
-<app-input
-  label="Full Name"
-  placeholder="Jonathon Smith"
-  type="text"
-  for="name"
-  name="name"
-></app-input>
-
-<app-input
-  label="Country"
-  placeholder="UK"
-  type="text"
-  for="country"
-  name="country"
-></app-input>
+<div class="input-wrapper">
+  <div class="data-container">
+    <label>Full Name</label>
+    <div class="input-icon-wrapper">
+      <input
+        class="input-field"
+        placeholder="Jonathon Smith"
+        type="text"
+        for="name"
+        name="name"
+      />
+    </div>
+  </div>
+</div>
+<div class="input-wrapper">
+  <div class="data-container">
+    <label>Country</label>
+    <div class="input-icon-wrapper">
+      <input
+        class="input-field"
+        placeholder="UK"
+        type="text"
+        for="country"
+        name="country"
+      />
+    </div>
+  </div>
+</div>
 
 <div class="contact">
-  <app-input
-    label="Phone"
-    placeholder="+880125412624"
-    type="number"
-    for="phone-number"
-    name="phone-number"
-    class="input-width"
-  ></app-input>
-  <app-input
-    label="Email"
-    placeholder="jhonathonsmith@gmail.com"
-    type="Email"
-    for="email"
-    name="email"
-    class="input-width"
-  ></app-input>
+  <div class="input-wrapper">
+    <div class="data-container">
+      <label>Phone</label>
+      <div class="input-icon-wrapper" class="input-width">
+        <input
+          class="input-field"
+          placeholder="+880125412624"
+          type="number"
+          for="phone-number"
+          name="phone-number"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="input-wrapper">
+    <div class="data-container">
+      <label>Email</label>
+      <div class="input-icon-wrapper" class="input-width">
+        <input
+          class="input-field"
+          placeholder="jhonathonsmith@gmail.com"
+          type="Email"
+          for="email"
+          name="email"
+        />
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="btn-width">
