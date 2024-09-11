@@ -123,9 +123,9 @@
     </form>
     <div style="width: 100%">
       <app-button
+        (click)="signUp()"
         buttonType="primary"
         buttonText="Create an Account"
-        routerLink="/"
       >
       </app-button>
       <p>Already have an account? <a routerLink="/login">Login</a></p>

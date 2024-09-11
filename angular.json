@@ -61,6 +61,10 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "proxyConfig": "./proxy.config.json",
+            "browserTarget": "speedoTransfer:build"
+          },
           "configurations": {
             "production": {
               "buildTarget": "speedoTransfer:build:production"
