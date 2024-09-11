@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Component, Input, OnInit } from '@angular/core';
 import { InputComponent } from '../../shared_components/input/input.component';
 import { ButtonComponent } from '../../shared_components/button/button.component';
 import { CommonModule } from '@angular/common';
@@ -7,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from '../login/login.component';
 import { HomeComponent } from '../home/home.component';
 import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthService, user } from '../../services/services/auth.service';
 import * as constants from './constants';
 import {
@@ -48,34 +48,15 @@ export function passwordMatchValidator(
 export class SignupComponent implements OnInit {
   loginForm: FormGroup;
   formSubmitted = false;
-export class SignupComponent implements OnInit {
-  loginForm: FormGroup;
-  formSubmitted = false;
   countries = constants.countries;
   months = constants.months;
   years = constants.years;
 
-  constructor(private authService: AuthService, private fb: FormBuilder) {
-    this.loginForm = this.fb.group(
-      {
-        name: ['', [Validators.required]],
-        email: ['', [Validators.required, Validators.email]],
-        country: ['', [Validators.required]],
-        dayOfBirth: ['', [Validators.required]],
-        monthOfBirth: ['', [Validators.required]],
-        yearOfBirth: ['', [Validators.required]],
-        password: ['', [Validators.required, Validators.minLength(8)]],
-        confirmpassword: ['', [Validators.required, Validators.minLength(8)]],
-      },
-      {
-        validators: passwordMatchValidator, // Apply the custom validator
-      }
-    );
-  }
-
-  ngOnInit(): void {}
-
-  constructor(private authService: AuthService, private fb: FormBuilder) {
+  constructor(
+    private authService: AuthService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {
     this.loginForm = this.fb.group(
       {
         name: ['', [Validators.required]],
@@ -114,6 +95,7 @@ export class SignupComponent implements OnInit {
       this.authService.register(requestBody).subscribe({
         next: (response) => {
           console.log('Registration successful:', response);
+          this.router.navigate(['/login']);
         },
         error: (err) => {
           console.error('Registration failed:', err);
