@@ -6,12 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from '../login/login.component';
 import { HomeComponent } from '../home/home.component';
 import { RouterLink } from '@angular/router';
-import { AuthService } from '../../services/services/auth.service';
+import { Router } from '@angular/router';
+import { AuthService, user } from '../../services/services/auth.service';
 import * as constants from './constants';
 import {
   FormBuilder,
   FormGroup,
-  FormControl,
   Validators,
   ReactiveFormsModule,
 } from '@angular/forms';
@@ -40,6 +40,7 @@ export function passwordMatchValidator(
     HomeComponent,
     RouterLink,
     ReactiveFormsModule,
+    ReactiveFormsModule,
   ],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss',
@@ -51,7 +52,11 @@ export class SignupComponent implements OnInit {
   months = constants.months;
   years = constants.years;
 
-  constructor(private authService: AuthService, private fb: FormBuilder) {
+  constructor(
+    private authService: AuthService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {
     this.loginForm = this.fb.group(
       {
         name: ['', [Validators.required]],
@@ -72,15 +77,43 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {}
 
   signUp() {
-    this.authService.register().subscribe((response) => {
-      console.log(response);
-    });
+    if (this.loginForm.valid) {
+      const formData = this.loginForm.value;
+
+      const birthDate = new Date(
+        `${formData.yearOfBirth}-${formData.monthOfBirth}-${formData.dayOfBirth}`
+      ).toISOString();
+
+      const requestBody: user = {
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+        country: formData.country,
+        birthDate: birthDate, // Pass the formatted birthDate
+      };
+
+      this.authService.register(requestBody).subscribe({
+        next: (response) => {
+          console.log('Registration successful:', response);
+          this.router.navigate(['/login']);
+        },
+        error: (err) => {
+          console.error('Registration failed:', err);
+        },
+        complete: () => {
+          console.log('Registration process completed');
+        },
+      });
+    } else {
+      console.log('Form is invalid');
+    }
   }
 
   onSubmit() {
     console.log(this.loginForm);
     this.formSubmitted = true;
     if (this.loginForm.valid) {
+      this.signUp();
       console.log('Form Submitted Successfully:', this.loginForm.value);
     } else {
       console.log('Form not valid');

@@ -1,26 +1,28 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
+export interface user {
+  name: string;
+  email: string;
+  password: string;
+  country: string;
+  birthDate: string;
+}
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private loggedIn: boolean = false;
-  private user: any = null;
+  private user: user | null = null;
   private baseURL: string =
     'https://speedotransfer-backend-production-7875.up.railway.app/api/v1';
 
   constructor(private http: HttpClient) {}
 
-  register() {
+  register(data: any): Observable<any> {
     const url = this.baseURL + '/auth/register';
-    const body = {
-      name: 'heba',
-      email: 'heba@123.com',
-      password: '123',
-      birthDate: '2024-09-08T13:10:28.576Z',
-    };
-    return this.http.post(url, body);
+    return this.http.post(url, data);
   }
 
   isLoggedIn(): boolean {
