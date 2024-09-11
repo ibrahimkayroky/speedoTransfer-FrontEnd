@@ -16,15 +16,23 @@
     </div>
   </div>
   <div class="continue">
-    <app-input
-      label="Send Amount"
-      placeholder="1000"
-      type="number"
-      for="amount"
-      name="amount"
-      [ngClass]="'width-417'"
-      ngClass="'fontWeight"
-    ></app-input>
+    <div class="input-wrapper">
+      <div class="data-container">
+        <label>Send Amount</label>
+        <div class="input-icon-wrapper">
+          <input
+            class="input-field"
+            placeholder="Ex.1000"
+            type="number"
+            for="amount"
+            name="amount"
+            [ngClass]="'width-417'"
+            ngClass="'fontWeight"
+            required
+          />
+        </div>
+      </div>
+    </div>
     <p class="time">
       <span class="time-span">Delivery Time: </span>By May 20th
     </p>

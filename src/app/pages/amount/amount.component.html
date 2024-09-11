@@ -25,14 +25,20 @@
   </div>
   <!--Form-->
   <div class="form">
-    <app-input
-      label="Amount"
-      placeholder="Ex.1000"
-      for="amount"
-      type="number"
-      required
-    >
-    </app-input>
+    <div class="input-wrapper">
+      <div class="data-container">
+        <label>Amount</label>
+        <div class="input-icon-wrapper">
+          <input
+            class="input-field"
+            placeholder="Ex.1000"
+            for="amount"
+            type="number"
+            required
+          />
+        </div>
+      </div>
+    </div>
 
     <!--Title-->
     <div class="title-conatiner">
@@ -68,22 +74,34 @@
     </div>
 
     <!--Inputs-->
-    <app-input
-      label="Recipient Name"
-      placeholder=""
-      for="Recipient-Name"
-      type="text"
-      required
-    >
-    </app-input>
-    <app-input
-      label="Recipient Account"
-      placeholder=""
-      for="Recipient-Account"
-      type="text"
-      required
-    >
-    </app-input>
+    <div class="input-wrapper">
+      <div class="data-container">
+        <label>Recipient Name</label>
+        <div class="input-icon-wrapper">
+          <input
+            class="input-field"
+            for="Recipient-Name"
+            type="text"
+            required
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="input-wrapper">
+      <div class="data-container">
+        <label>Recipient Account</label>
+        <div class="input-icon-wrapper">
+          <input
+            class="input-field"
+            for="Recipient-Account"
+            type="text"
+            required
+          />
+        </div>
+      </div>
+    </div>
+
     <div style="width: 100%">
       <app-button
         buttonType="primary"
