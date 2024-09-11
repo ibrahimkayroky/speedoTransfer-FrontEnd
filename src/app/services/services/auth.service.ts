@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -6,8 +7,21 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   private loggedIn: boolean = false;
   private user: any = null;
+  private baseURL: string =
+    'https://speedotransfer-backend-production-7875.up.railway.app/api/v1';
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
+
+  register() {
+    const url = this.baseURL + '/auth/register';
+    const body = {
+      name: 'heba',
+      email: 'heba@123.com',
+      password: '123',
+      birthDate: '2024-09-08T13:10:28.576Z',
+    };
+    return this.http.post(url, body);
+  }
 
   isLoggedIn(): boolean {
     return this.loggedIn;

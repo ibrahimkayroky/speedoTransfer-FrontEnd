@@ -117,15 +117,15 @@
       <p>
         The password should be at least eight characters long. To make it
         stronger, use upper and lower case letters, numbers, and symbols like !
-        " ? $ % ^ & )
+        " ? $ % ^ &
       </p>
       <!--small class="error">This Field Is Required</!--small-->
     </form>
     <div style="width: 100%">
       <app-button
+        (click)="signUp()"
         buttonType="primary"
         buttonText="Create an Account"
-        routerLink="/"
       >
       </app-button>
       <p>Already have an account? <a routerLink="/login">Login</a></p>
