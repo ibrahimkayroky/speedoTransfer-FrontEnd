@@ -10,6 +10,7 @@ import { PaymentHistoryComponent } from './pages/payment-history/payment-history
 import { SettingsComponent } from './pages/settings/settings.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
+
 import { AmountComponent } from './pages/amount/amount.component';
 import { ConfirmationComponent } from './pages/confirmation/confirmation.component';
 import { PaymentComponent } from './pages/payment/payment.component';
@@ -27,9 +28,7 @@ export const routes: Routes = [
       { path: 'favorite', component: FavoriteComponent },
     ],
   },
-  {
-    path: 'my-account',
-    component: MyAccountComponent,
+  { path: 'my-account', component: MyAccountComponent,
     children: [
       { path: 'my-profile', component: MyProfileComponent },
       { path: 'payment-history', component: PaymentHistoryComponent },
