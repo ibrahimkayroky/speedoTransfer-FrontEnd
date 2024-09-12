@@ -43,7 +43,7 @@
 
   <!-- Show when user is logged in -->
   <div class="navbar__user" *ngIf="isLoggedIn()" (click)="toggleDropdown()">
-    <a class="navbar__user-name" *ngIf="user">
+    <a class="navbar__user-name">
       <span class="user-initials">{{ user.name | initialNames }}</span>
       {{ user.name }}
       <span>

@@ -30,7 +30,7 @@ export class NavBarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.authService.getUser().subscribe((userData: user) => {
+    this.authService.getUser().subscribe((userData) => {
       this.user = userData;
       console.log('User data fetched', this.user);
     });
