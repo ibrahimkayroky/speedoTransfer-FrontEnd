@@ -6,13 +6,15 @@ import { SignupComponent } from '../signup/signup.component';
 import { RouterLink } from '@angular/router';
 import { HomeComponent } from '../home/home.component';
 import { Router } from '@angular/router';
-
+import { AuthService, user } from '../../services/services/auth.service';
 import {
   FormBuilder,
   FormGroup,
   Validators,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { catchError, switchMap, tap } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -52,7 +54,7 @@ export class LoginComponent implements OnInit {
         this.showLoginMessage = true;
         this.hideCreateAccount = true;
         this.logoutUser();
-      }, 12000)
+      }, this.inactivityTimeLimit)
     );
   }
 
@@ -60,7 +62,11 @@ export class LoginComponent implements OnInit {
     this.showWarning = false;
   }
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private authService: AuthService
+  ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
@@ -68,13 +74,35 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.loginForm);
     this.formSubmitted = true;
+
     if (this.loginForm.valid) {
-      console.log('Form Submitted Successfully:', this.loginForm.value);
-      this.router.navigate(['/']);
+      const formData = this.loginForm.value;
+      this.authService
+        .login(formData)
+        .pipe(
+          tap((response) => {
+            // save the user data and mark the user as logged in
+            console.log('Login Successful', response);
+            localStorage.setItem('token', response.token);
+          }),
+          switchMap(() => this.authService.getUser()),
+          tap((userData) => {
+            if (userData) {
+              this.authService.setLoggedIn(userData);
+              this.router.navigate(['/']);
+            } else {
+              console.error('Failed to retrieve user data');
+            }
+          }),
+          catchError((error) => {
+            console.error('Login failed', error);
+            return of(null);
+          })
+        )
+        .subscribe();
     } else {
-      console.log('Form not valid');
+      console.log('Form is not valid');
     }
   }
 
