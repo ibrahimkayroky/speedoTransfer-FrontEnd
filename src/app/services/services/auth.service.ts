@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface user {
@@ -25,11 +25,16 @@ export class AuthService {
     return this.http.post(url, data);
   }
 
+  login(data: any): Observable<any> {
+    const url = this.baseURL + '/auth/authenticate';
+    return this.http.post(url, data);
+  }
+
   isLoggedIn(): boolean {
     return this.loggedIn;
   }
 
-  login(userData: any): void {
+  setLoggedIn(userData: user): void {
     this.loggedIn = true;
     this.user = userData;
     localStorage.setItem('user', JSON.stringify(userData));
@@ -44,11 +49,13 @@ export class AuthService {
   }
 
   //get the currently logged in user
-  getUser(): any {
-    if (!this.user && typeof window !== 'undefined') {
-      this.user = JSON.parse(localStorage.getItem('user') || 'null');
-    }
-
-    return this.user;
+  getUser(): Observable<user> {
+    const url = this.baseURL + '/user/getUser';
+    const token = localStorage.getItem('token'); // Assuming the token is stored in localStorage
+    // Set up the headers with the token
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+    return this.http.get<user>(url, { headers });
   }
 }

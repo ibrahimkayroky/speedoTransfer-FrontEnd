@@ -1,8 +1,8 @@
-import { Component, ElementRef, HostListener } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../button/button.component';
-import { AuthService } from '../../services/services/auth.service';
+import { AuthService, user } from '../../services/services/auth.service';
 import { InitialNamesPipe } from '../../pipes/initial-names.pipe';
 import { AmountComponent } from '../../pages/amount/amount.component';
 
@@ -20,16 +20,20 @@ import { AmountComponent } from '../../pages/amount/amount.component';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
-export class NavBarComponent {
-  user: any = {};
+export class NavBarComponent implements OnInit {
+  user: any = null;
   isDropdownOpen = false;
 
   constructor(
     private authService: AuthService,
     private elementRef: ElementRef
-  ) {
-    if (this.isBrowser()) this.authService.login({ name: 'Jonathon Smith' });
-    this.user = this.authService.getUser();
+  ) {}
+
+  ngOnInit(): void {
+    this.authService.getUser().subscribe((userData: user) => {
+      this.user = userData;
+      console.log('User data fetched', this.user);
+    });
   }
 
   toggleDropdown() {
@@ -55,7 +59,6 @@ export class NavBarComponent {
     this.user = null;
   }
 
-  //
   private isBrowser(): boolean {
     return typeof window !== 'undefined' && typeof localStorage !== 'undefined';
   }
