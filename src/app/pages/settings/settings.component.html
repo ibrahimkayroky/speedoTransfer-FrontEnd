@@ -8,67 +8,125 @@
     <a routerLink="/my-account/change-password">Change Password</a>
   </li>
 </ul>
-<div class="input-wrapper">
-  <div class="data-container">
-    <label>Full Name</label>
-    <div class="input-icon-wrapper">
-      <input
-        class="input-field"
-        placeholder="Jonathon Smith"
-        type="text"
-        for="name"
-        name="name"
-      />
+<form formGroup="settingForm" (ngSubmit)="onSubmit()">
+  <div>
+    <!-- name -->
+    <div>
+      <div class="input-wrapper">
+        <div class="data-container">
+          <label>Full Name</label>
+          <div class="input-icon-wrapper">
+            <input
+              formControlName="name"
+              class="input-field"
+              placeholder="Jonathon Smith"
+              type="text"
+              for="name"
+              name="name"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        *ngIf="
+          settingForm.get('name')?.invalid && settingForm.get('name')?.touched
+        "
+      >
+        <small *ngIf="settingForm.get('name')?.errors?.['required']">
+          Full Name is required.
+        </small>
+        <small *ngIf="settingForm.get('name')?.errors?.['pattern']">
+          Full Name must contain only letters and spaces.
+        </small>
+      </div>
     </div>
-  </div>
-</div>
-<div class="input-wrapper">
-  <div class="data-container">
-    <label>Country</label>
-    <div class="input-icon-wrapper">
-      <input
-        class="input-field"
-        placeholder="UK"
-        type="text"
-        for="country"
-        name="country"
-      />
-    </div>
-  </div>
-</div>
 
-<div class="contact">
-  <div class="input-wrapper">
-    <div class="data-container">
-      <label>Phone</label>
-      <div class="input-icon-wrapper" class="input-width">
-        <input
-          class="input-field"
-          placeholder="+880125412624"
-          type="number"
-          for="phone-number"
-          name="phone-number"
-        />
+    <!-- country -->
+    <div>
+      <div class="input-wrapper">
+        <div class="data-container">
+          <label>Country</label>
+          <div class="input-icon-wrapper">
+            <input
+              formControlName="country"
+              class="input-field"
+              placeholder="UK"
+              type="text"
+              for="country"
+              name="country"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        *ngIf="
+          settingForm.get('country')?.invalid &&
+          settingForm.get('country')?.touched
+        "
+      >
+        <small *ngIf="settingForm.get('country')?.errors?.['required']">
+          Full Name is required.
+        </small>
+        <small *ngIf="settingForm.get('country')?.errors?.['pattern']">
+          Full Name must contain only letters and spaces.
+        </small>
+      </div>
+    </div>
+
+    <div class="contact">
+      <!-- phone -->
+      <div class="input-wrapper">
+        <div class="data-container">
+          <label>Phone</label>
+          <div class="input-icon-wrapper" class="input-width">
+            <input
+              class="input-field"
+              placeholder="+880125412624"
+              type="number"
+              for="phone-number"
+              name="phone-number"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- email -->
+      <div>
+        <div class="input-wrapper">
+          <div class="data-container">
+            <label>Email</label>
+            <div class="input-icon-wrapper" class="input-width">
+              <input
+                formControlName="email"
+                class="input-field"
+                placeholder="jhonathonsmith@gmail.com"
+                type="Email"
+                for="email"
+                name="email"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          *ngIf="
+            settingForm.get('email')?.invalid &&
+            settingForm.get('email')?.touched
+          "
+        >
+          <small *ngIf="settingForm.get('email')?.errors?.['required']"
+            >Email is required.</small
+          >
+          <small *ngIf="settingForm.get('email')?.errors?.['email']"
+            >Invalid email format.</small
+          >
+        </div>
+      </div>
+
+      <div class="btn-width">
+        <app-button
+          buttonType="primary"
+          buttonText="Update Profile"
+        ></app-button>
       </div>
     </div>
   </div>
-
-  <div class="input-wrapper">
-    <div class="data-container">
-      <label>Email</label>
-      <div class="input-icon-wrapper" class="input-width">
-        <input
-          class="input-field"
-          placeholder="jhonathonsmith@gmail.com"
-          type="Email"
-          for="email"
-          name="email"
-        />
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="btn-width">
-  <app-button buttonType="primary" buttonText="Update Profile"></app-button>
-</div>
+</form>
