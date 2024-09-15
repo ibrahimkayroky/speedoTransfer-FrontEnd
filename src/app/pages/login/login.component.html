@@ -112,18 +112,38 @@
           >
         </div>
       </div>
-      <!--small class="error">This Field Is Required</!--small-->
+
       <div style="width: 501px">
-        <app-input
-          label="Password"
-          placeholder="************"
-          for="password"
-          type="password"
-          [controlName]="'password'"
-          [form]="loginForm"
+        <!--Password-->
+        <div class="input-wrapper">
+          <div class="data-container">
+            <label for="password">Password</label>
+            <div class="input-icon-wrapper">
+              <input
+                type="password"
+                placeholder="************"
+                class="input-field"
+                name="password"
+                formControlName="password"
+                required
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          *ngIf="
+            loginForm.get('password')?.invalid &&
+            loginForm.get('password')?.touched
+          "
         >
-        </app-input>
-        <!--small class="error">This Field Is Required</!--small-->
+          <small *ngIf="loginForm.get('password')?.errors?.['required']"
+            >Password is required.</small
+          >
+          <small *ngIf="loginForm.get('password')?.errors?.['minlength']"
+            >Password must be at least 8 characters long.</small
+          >
+        </div>
+
         <div
           *ngIf="
             loginForm.get('password')?.invalid &&
