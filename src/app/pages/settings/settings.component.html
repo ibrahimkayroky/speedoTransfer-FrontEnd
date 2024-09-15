@@ -8,7 +8,7 @@
     <a routerLink="/my-account/change-password">Change Password</a>
   </li>
 </ul>
-<form formGroup="settingForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="settingForm" (ngSubmit)="onSubmit()">
   <div>
     <!-- name -->
     <div>
@@ -32,10 +32,16 @@
           settingForm.get('name')?.invalid && settingForm.get('name')?.touched
         "
       >
-        <small *ngIf="settingForm.get('name')?.errors?.['required']">
+        <small
+          *ngIf="settingForm.get('name')?.errors?.['required']"
+          style="color: red"
+        >
           Full Name is required.
         </small>
-        <small *ngIf="settingForm.get('name')?.errors?.['pattern']">
+        <small
+          *ngIf="settingForm.get('name')?.errors?.['pattern']"
+          style="color: red"
+        >
           Full Name must contain only letters and spaces.
         </small>
       </div>
@@ -64,11 +70,17 @@
           settingForm.get('country')?.touched
         "
       >
-        <small *ngIf="settingForm.get('country')?.errors?.['required']">
-          Full Name is required.
+        <small
+          *ngIf="settingForm.get('country')?.errors?.['required']"
+          style="color: red"
+        >
+          Country is required.
         </small>
-        <small *ngIf="settingForm.get('country')?.errors?.['pattern']">
-          Full Name must contain only letters and spaces.
+        <small
+          *ngIf="settingForm.get('country')?.errors?.['pattern']"
+          style="color: red"
+        >
+          Country must contain only letters and spaces.
         </small>
       </div>
     </div>
@@ -112,21 +124,21 @@
             settingForm.get('email')?.touched
           "
         >
-          <small *ngIf="settingForm.get('email')?.errors?.['required']"
+          <small
+            *ngIf="settingForm.get('email')?.errors?.['required']"
+            style="color: red"
             >Email is required.</small
           >
-          <small *ngIf="settingForm.get('email')?.errors?.['email']"
+          <small
+            *ngIf="settingForm.get('email')?.errors?.['email']"
+            style="color: red"
             >Invalid email format.</small
           >
         </div>
       </div>
-
-      <div class="btn-width">
-        <app-button
-          buttonType="primary"
-          buttonText="Update Profile"
-        ></app-button>
-      </div>
+    </div>
+    <div class="btn-width">
+      <app-button buttonType="primary" buttonText="Update Profile"></app-button>
     </div>
   </div>
 </form>

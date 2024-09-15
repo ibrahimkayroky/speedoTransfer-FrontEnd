@@ -4,6 +4,7 @@ import { InputComponent } from '../../shared_components/input/input.component';
 import { ButtonComponent } from '../../shared_components/button/button.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
 import {
   FormBuilder,
   FormGroup,
@@ -21,6 +22,7 @@ import {
     InputComponent,
     ButtonComponent,
     CommonModule,
+    ReactiveFormsModule,
   ],
   templateUrl: './settings.component.html',
   styleUrl: './settings.component.scss',
@@ -31,23 +33,20 @@ export class SettingsComponent {
 
   constructor() {
     this.settingForm = new FormGroup({
-      name: new FormControl([
-        '',
-        [Validators.required, Validators.pattern('[a-zA-Z ]*')],
+      name: new FormControl('', [
+        Validators.required,
+        Validators.pattern('[a-zA-Z ]*'),
       ]),
-      country: new FormControl([
-        '',
-        [Validators.required, Validators.pattern('[a-zA-Z ]*')],
+      country: new FormControl('', [
+        Validators.required,
+        Validators.pattern('[a-zA-Z ]*'),
       ]),
-      phone: new FormControl([
-        '',
-        [
-          Validators.required,
-          Validators.pattern('^[0-9]+$'),
-          Validators.minLength(10),
-        ],
+      phone: new FormControl('', [
+        Validators.required,
+        Validators.pattern('^[0-9]+$'),
+        Validators.minLength(10),
       ]),
-      email: new FormControl(['', [Validators.required, Validators.email]]),
+      email: new FormControl('', [Validators.required, Validators.email]),
     });
   }
 
